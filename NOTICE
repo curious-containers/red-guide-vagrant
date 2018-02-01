@@ -1,0 +1,32 @@
+Vagrant-Quickstart is part of the Curious Containers project.
+
+Copyright 2018 Christoph Jansen
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+Acknowledgements
+
+The Curious Containers software is developed at CBMI (HTW Berlin - University
+of Applied Sciences). The work is supported by the German Ministry of Economic
+Affairs and Energy (ZIM Project BeCRF, Grant number KF3470401BZ4).
+
+
+Web:
+  - https://cbmi.htw-berlin.de/
+  - https://www.curious-containers.cc
+  - https://github.com/curious-containers/cc-core
+
+E-Mail:
+  - Christoph.Jansen@htw-berlin.de
