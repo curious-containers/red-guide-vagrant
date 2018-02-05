@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+from argparse import ArgumentParser
+from subprocess import call
+
+OUTPUT_FILE = 'out.txt'
+
+parser = ArgumentParser(description='Search for query terms in text files.')
+parser.add_argument(
+    'query_term', action='store', type=str, metavar='QUERY_TERM',
+    help='Search for QUERY_TERM in TEXT_FILE.'
+)
+parser.add_argument(
+    'text_file', action='store', type=str, metavar='TEXT_FILE',
+    help='TEXT_FILE containing plain text.'
+)
+parser.add_argument(
+    '-A', '--after-context', action='store', type=int, metavar='NUM',
+    help='Print NUM lines of trailing context after matching lines.'
+)
+parser.add_argument(
+    '-B', '--before-context', action='store', type=int, metavar='NUM',
+    help='Print NUM lines of leading context before matching lines.'
+)
+args = parser.parse_args()
+
+command = 'grep {} {}'.format(args.query_term, args.text_file)
+
+if args.after_context:
+    command = '{} -A {}'.format(command, args.after_context)
+
+if args.before_context:
+    command = '{} -B {}'.format(command, args.before_context)
+
+command = '{} > {}'.format(command, OUTPUT_FILE)
+
+exit(call(command, shell=True))

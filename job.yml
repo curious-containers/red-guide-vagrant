@@ -1,0 +1,5 @@
+query_term: QU
+text_file:
+  class: File
+  path: "in.txt"
+before_context: 1
