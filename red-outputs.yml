@@ -1,0 +1,8 @@
+out_file:
+  class: File
+  connector:
+    pyModule: "cc_core.commons.connectors.http"
+    pyClass: "Http"
+    access:
+      url: "http://localhost:5000/server-out.txt"
+      method: "POST"
