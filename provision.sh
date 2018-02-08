@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-dnf install -y nano git docker-engine redhat-rpm-config gcc python3-devel
 groupadd docker
 usermod -aG docker vagrant
+
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+dnf install -y nano git redhat-rpm-config gcc python3-devel docker-ce
+
 systemctl enable docker
 systemctl start docker

@@ -1,0 +1,57 @@
+redVersion: "3"
+cli:
+  cwlVersion: "v1.0"
+  class: "CommandLineTool"
+  baseCommand: "grepwrap"
+  doc: "Search for query terms in text files."
+
+  inputs:
+    query_term:
+      type: "string"
+      inputBinding:
+        position: 0
+      doc: "Search for QUERY_TERM in TEXT_FILE."
+    text_file:
+      type: "File"
+      inputBinding:
+        position: 1
+      doc: "TEXT_FILE containing plain text."
+    after_context:
+      type: "int?"
+      inputBinding:
+        prefix: "-A"
+      doc: "Print NUM lines of trailing context after matching lines."
+    before_context:
+      type: "int?"
+      inputBinding:
+        prefix: "-B"
+      doc: "Print NUM lines of leading context before matching lines."
+
+  outputs:
+    out_file:
+      type: "File"
+      outputBinding:
+        glob: "out.txt"
+      doc: "Query results."
+
+inputs:
+  query_term: "QU"
+  text_file:
+    class: "File"
+    connector:
+      pyModule: "cc_core.commons.connectors.http"
+      pyClass: "Http"
+      access:
+        url: "https://raw.githubusercontent.com/curious-containers/vagrant-quickstart/master/in.txt"
+        method: "GET"
+  before_context: 1
+
+outputs:
+  out_file:
+    class: "File"
+    connector:
+      pyModule: "cc_core.commons.connectors.http"
+      pyClass: "Http"
+      access:
+        url: "http://localhost:5000/server-out.txt"
+        method: "POST"

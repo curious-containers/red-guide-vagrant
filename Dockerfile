@@ -7,10 +7,10 @@ RUN apt-get update \
 # install cc-core
 USER cc
 
-RUN pip3 install --no-input --user cc-core==2.0.2
+RUN pip3 install --no-input --user cc-core==3.0.0
 
 ENV PATH="/home/cc/.local/bin:${PATH}"
 ENV PYTHONPATH="/home/cc/.local/lib/python3.5/site-packages/"
 
 # install app
-ADD grepwrap /home/cc/.local/bin/grepwrap
+ADD --chown=cc:cc grepwrap /home/cc/.local/bin/grepwrap
