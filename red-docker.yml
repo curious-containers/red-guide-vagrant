@@ -1,4 +1,4 @@
-redVersion: "2"
+redVersion: "3"
 cli:
   cwlVersion: "v1.0"
   class: "CommandLineTool"
@@ -51,7 +51,6 @@ inputs:
         url: "https://raw.githubusercontent.com/curious-containers/vagrant-quickstart/master/in.txt"
         method: "GET"
   before_context: 1
-
 
 outputs:
   out_file:
