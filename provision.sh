@@ -3,8 +3,9 @@
 groupadd docker
 usermod -aG docker vagrant
 
-sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-dnf install -y nano git redhat-rpm-config gcc python3-devel docker-ce
+apt-get update
+apt-get install -y apt-utils git python3-pip
 
-systemctl enable docker
-systemctl start docker
+curl -fsSL test.docker.com | sh
+
+su vagrant -c "mkdir -p ~/.local/bin"
