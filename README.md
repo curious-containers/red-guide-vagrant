@@ -2,8 +2,7 @@
 
 RED Guide Vagrant is part of the Curious Containers project.
 
-For more information please refer to the Curious Containers [project website](https://www.curious-containers.cc/) and 
-[documentation](https://www.curious-containers.cc/docs/html/index.html).
+For more information please refer to the Curious Containers [documentation](https://www.curious-containers.cc/).
 
 ## Acknowledgements
 
