@@ -1,4 +1,4 @@
-FROM docker.io/debian:9.3-slim
+FROM docker.io/debian:9.5-slim
 
 RUN apt-get update \
 && apt-get install -y python3-pip \
