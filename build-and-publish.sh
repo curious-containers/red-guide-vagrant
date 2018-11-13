@@ -2,7 +2,7 @@
 
 set -eu
 
-VERSION=5.3.2
+VERSION=5.4.0
 
 docker pull docker.io/debian:9.5-slim
 docker build -t docker.io/copla/grepwrap:${VERSION} .
