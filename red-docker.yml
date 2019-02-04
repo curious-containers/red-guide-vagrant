@@ -1,4 +1,4 @@
-redVersion: "5"
+redVersion: "6"
 cli:
   cwlVersion: "v1.0"
   class: "CommandLineTool"
@@ -39,8 +39,7 @@ inputs:
   text_file:
     class: "File"
     connector:
-      pyModule: "cc_core.commons.connectors.http"
-      pyClass: "Http"
+      command: "red-connector-http"
       access:
         url: "https://raw.githubusercontent.com/curious-containers/vagrant-quickstart/master/in.txt"
   before_context: 1
@@ -49,8 +48,7 @@ outputs:
   out_file:
     class: "File"
     connector:
-      pyModule: "cc_core.commons.connectors.http"
-      pyClass: "Http"
+      command: "red-connector-http"
       access:
         url: "http://172.17.0.1:5000/server-out.txt"
 
