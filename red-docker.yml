@@ -34,12 +34,6 @@ cli:
         glob: "out.txt"
       doc: "Query results."
 
-container:
-  engine: "docker"
-  settings:
-    image:
-      url: "grepwrap-image"
-
 inputs:
   query_term: "QU"
   text_file:
@@ -49,7 +43,6 @@ inputs:
       pyClass: "Http"
       access:
         url: "https://raw.githubusercontent.com/curious-containers/vagrant-quickstart/master/in.txt"
-        method: "GET"
   before_context: 1
 
 outputs:
@@ -60,4 +53,9 @@ outputs:
       pyClass: "Http"
       access:
         url: "http://172.17.0.1:5000/server-out.txt"
-        method: "POST"
+
+container:
+  engine: "docker"
+  settings:
+    image:
+      url: "grepwrap"
