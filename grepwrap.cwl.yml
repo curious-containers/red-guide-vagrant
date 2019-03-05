@@ -3,10 +3,6 @@ class: "CommandLineTool"
 baseCommand: "grepwrap"
 doc: "Search for query terms in text files."
 
-requirements:
-  DockerRequirement:
-    dockerPull: "grepwrap-image"
-
 inputs:
   query_term:
     type: "string"
@@ -35,3 +31,7 @@ outputs:
     outputBinding:
       glob: "out.txt"
     doc: "Query results."
+
+requirements:
+  DockerRequirement:
+    dockerPull: "grepwrap"

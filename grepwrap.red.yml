@@ -34,6 +34,12 @@ cli:
         glob: "out.txt"
       doc: "Query results."
 
+container:
+  engine: "docker"
+  settings:
+    image:
+      url: "grepwrap"
+
 inputs:
   query_term: "QU"
   text_file:
@@ -41,7 +47,7 @@ inputs:
     connector:
       command: "red-connector-http"
       access:
-        url: "https://raw.githubusercontent.com/curious-containers/vagrant-quickstart/master/in.txt"
+        url: "https://raw.githubusercontent.com/curious-containers/red-guide-vagrant/master/in.txt"
   before_context: 1
 
 outputs:
@@ -50,4 +56,4 @@ outputs:
     connector:
       command: "red-connector-http"
       access:
-        url: "http://localhost:5000/server-out.txt"
+        url: "http://172.17.0.1:5000/server-out.txt"
