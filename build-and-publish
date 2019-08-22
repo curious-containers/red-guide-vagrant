@@ -2,7 +2,8 @@
 
 set -eu
 
-docker build --pull -t docker.io/copla/grepwrap .
-docker run docker.io/copla/grepwrap red-connector-http --version
-docker run docker.io/copla/grepwrap grepwrap --help
-docker push docker.io/copla/grepwrap
+docker build --pull -t docker.io/curiouscontainers/grepwrap .
+docker run docker.io/curiouscontainers/grepwrap red-connector-http --version
+docker run docker.io/curiouscontainers/grepwrap red-connector-http cli-version
+docker run docker.io/curiouscontainers/grepwrap grepwrap --help
+docker push docker.io/curiouscontainers/grepwrap

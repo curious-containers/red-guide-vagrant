@@ -1,4 +1,4 @@
-redVersion: "7"
+redVersion: "8"
 cli:
   cwlVersion: "v1.0"
   class: "CommandLineTool"
@@ -38,7 +38,7 @@ container:
   engine: "docker"
   settings:
     image:
-      url: "grepwrap"
+      url: "docker.io/curiouscontainers/grepwrap"
 
 inputs:
   query_term: "QU"
@@ -50,10 +50,6 @@ inputs:
         url: "https://raw.githubusercontent.com/curious-containers/red-guide-vagrant/master/in.txt"
   before_context: 1
 
-outputs:
-  out_file:
-    class: "File"
-    connector:
-      command: "red-connector-http"
-      access:
-        url: "http://172.17.0.1:5000/server-out.txt"
+execution:
+  engine: "ccfaice"
+  settings: {}
