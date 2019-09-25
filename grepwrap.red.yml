@@ -53,3 +53,15 @@ inputs:
 execution:
   engine: "ccfaice"
   settings: {}
+
+outputs:
+  out_file:
+    class: "File"
+    connector:
+      command: "red-connector-ssh"
+      access:
+        host: "avocado01.f4.htw-berlin.de"
+        auth:
+          username: "{{ssh_username}}"
+          password: "{{ssh_password}}"
+        filePath: "/home/users/{{ssh_username}}/out.txt"
