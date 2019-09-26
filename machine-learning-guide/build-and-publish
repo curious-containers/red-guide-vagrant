@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eu
+
+docker build --pull -t docker.io/curiouscontainers/cnn .
+docker run --rm -u 1000:1000 docker.io/curiouscontainers/cnn red-connector-ssh --version
+docker run --rm -u 1000:1000 docker.io/curiouscontainers/cnn red-connector-ssh cli-version
+docker run --rm -u 1000:1000 docker.io/curiouscontainers/cnn cnn-training.py --help
+docker push docker.io/curiouscontainers/cnn

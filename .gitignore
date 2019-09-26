@@ -1,6 +1,8 @@
 /.vagrant
 /.idea
-/server-out.txt
+server-out.txt
 /ubuntu-bionic-18.04-cloudimg-console.log
-/outputs
+outputs
 out.txt
+predictions.csv
+weights.h5
