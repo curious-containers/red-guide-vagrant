@@ -64,4 +64,4 @@ outputs:
         auth:
           username: "{{ssh_username}}"
           password: "{{ssh_password}}"
-        filePath: "/home/users/{{ssh_username}}/out.txt"
+        filePath: "out.txt"
