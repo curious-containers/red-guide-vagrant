@@ -182,7 +182,7 @@
             "image": {
                 "url": "docker.io/curiouscontainers/cnn"
             },
-            "ram": 16000,
+            "ram": 32000,
             "gpus": {
                 "vendor": "nvidia",
                 "count": 1
