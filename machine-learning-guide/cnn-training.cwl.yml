@@ -1,0 +1,48 @@
+cwlVersion: "v1.0"
+class: "CommandLineTool"
+baseCommand: "cnn-training.py"
+doc: "Train a CNN on PCAM data in HDF5 format."
+
+inputs:
+  data_dir:
+    type: "Directory"
+    inputBinding:
+      position: 0
+    doc: "Data: Path to read-only directory containing PCAM *.h5 files."
+  learning_rate:
+    type: "float?"
+    inputBinding:
+      prefix: "--learning-rate"
+    doc: "Training: Learning rate. Default: 0.0001"
+  batch_size:
+    type: "int?"
+    inputBinding:
+      prefix: "--batch-size"
+    doc: "Training: Batch size. Default: 64"
+  num_epochs:
+    type: "int?"
+    inputBinding:
+      prefix: "--num-epochs"
+    doc: "Training: Number of epochs. Default: 5"
+  steps_per_epoch:
+    type: "int?"
+    inputBinding:
+      prefix: "--steps-per-epoch"
+    doc: "Training: Steps per epoch. Default: data_size / batch_size"
+  log_dir:
+    type: "Directory?"
+    inputBinding:
+      prefix: "--log-dir"
+    doc: "Debug: Path to writable directory for a log file to be created. Default: log to stdout / stderr"
+  log_file_name:
+    type: "string?"
+    inputBinding:
+      prefix: "--log-file-name"
+    doc: "Debug: Name of the log file, generated when --log-dir is set. Default: training.log"
+
+outputs:
+  weights_file:
+    type: "File"
+    outputBinding:
+      glob: "weights.h5"
+    doc: "CNN model weights in HDF5 format."

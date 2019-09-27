@@ -14,7 +14,6 @@ from tensorflow.keras.metrics import AUC
 
 # Constants
 WEIGHTS_FILE = 'weights.h5'
-LOG_FILE = 'training.log'
 TRAIN_X_FILE = 'camelyonpatch_level_2_split_train_x.h5'
 TRAIN_Y_FILE = 'camelyonpatch_level_2_split_train_y.h5'
 VALID_X_FILE = 'camelyonpatch_level_2_split_train_x.h5'
@@ -46,14 +45,18 @@ parser.add_argument(
 )
 parser.add_argument(
     '--log-dir', type=str, default=None,
-    help='Debug: Path to writable directory for training.log file. Default: log to stdout / stderr'
+    help='Debug: Path to writable directory for a log file to be created. Default: log to stdout / stderr'
+)
+parser.add_argument(
+    '--log-file-name', type=str, default='training.log',
+    help='Debug: Name of the log file, generated when --log-dir is set. Default: training.log'
 )
 args = parser.parse_args()
 
 
 # Redirect output streams for logging
 if args.log_dir:
-    log_file = open(os.path.join(os.path.expanduser(args.log_dir), LOG_FILE), 'w')
+    log_file = open(os.path.join(os.path.expanduser(args.log_dir), args.log_file_name), 'w')
     sys.stdout = log_file
     sys.stderr = log_file
 
