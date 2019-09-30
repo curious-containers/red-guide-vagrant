@@ -7,6 +7,7 @@ import random
 
 import h5py
 import numpy as np
+import tensorflow as tf
 from tensorflow.keras.applications.nasnet import NASNetMobile
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.metrics import AUC
@@ -59,6 +60,8 @@ if args.log_dir:
     log_file = open(os.path.join(os.path.expanduser(args.log_dir), args.log_file_name), 'w')
     sys.stdout = log_file
     sys.stderr = log_file
+
+print('GPU available:', tf.test.is_gpu_available())
 
 
 # Model

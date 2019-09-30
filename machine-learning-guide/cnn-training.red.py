@@ -7,6 +7,7 @@ SSH_AUTH = {'username': '{{ssh_username}}', 'password': '{{ssh_password}}'}
 DATA_DIR = '/data/ldap/histopathologic/original_read_only/PCAM_extracted'
 AGENCY_URL = 'https://agency.f4.htw-berlin.de/cc'
 LEARNING_RATES = [0.0001, 0.0005]
+STEPS_PER_EPOCH = 10
 
 
 batches = []
@@ -27,8 +28,7 @@ for i, learning_rate in enumerate(LEARNING_RATES):
                 }
             },
             'learning_rate': learning_rate,
-            'steps_per_epoch': 1,
-            'num_epochs': 1,
+            'steps_per_epoch': STEPS_PER_EPOCH,
             'log_dir': {
                 'class': 'Directory',
                 'connector': {
@@ -52,7 +52,7 @@ for i, learning_rate in enumerate(LEARNING_RATES):
                     'access': {
                         'host': SSH_SERVER,
                         'auth': SSH_AUTH,
-                        'filePath': 'cnn-training/weights/weights_{}.h5'.format(i),
+                        'filePath': 'weights_{}.h5'.format(i),
                     }
                 }
             }

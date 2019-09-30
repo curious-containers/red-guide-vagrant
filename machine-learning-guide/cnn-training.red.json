@@ -85,8 +85,7 @@
                     }
                 },
                 "learning_rate": 0.0001,
-                "steps_per_epoch": 1,
-                "num_epochs": 1,
+                "steps_per_epoch": 10,
                 "log_dir": {
                     "class": "Directory",
                     "connector": {
@@ -116,7 +115,7 @@
                                 "username": "{{ssh_username}}",
                                 "password": "{{ssh_password}}"
                             },
-                            "filePath": "cnn-training/weights/weights_0.h5"
+                            "filePath": "weights_0.h5"
                         }
                     }
                 }
@@ -140,8 +139,7 @@
                     }
                 },
                 "learning_rate": 0.0005,
-                "steps_per_epoch": 1,
-                "num_epochs": 1,
+                "steps_per_epoch": 10,
                 "log_dir": {
                     "class": "Directory",
                     "connector": {
@@ -171,7 +169,7 @@
                                 "username": "{{ssh_username}}",
                                 "password": "{{ssh_password}}"
                             },
-                            "filePath": "cnn-training/weights/weights_1.h5"
+                            "filePath": "weights_1.h5"
                         }
                     }
                 }
