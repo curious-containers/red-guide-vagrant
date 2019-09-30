@@ -5,15 +5,8 @@ import json
 SSH_SERVER = 'avocado01.f4.htw-berlin.de'
 SSH_AUTH = {'username': '{{ssh_username}}', 'password': '{{ssh_password}}'}
 DATA_DIR = '/data/ldap/histopathologic/original_read_only/PCAM_extracted'
-WEIGHTS_DIR = 'cnn-training/weights'
-LOG_DIR = 'cnn-training/log'
-CC_AGENCY_URL = 'https://agency.f4.htw-berlin.de/cc'
-CC_AGENCY_AUTH = {'username': '{{agency_username}}', 'password': '{{agency_password}}'}
-CONTAINER_IMAGE_URL = 'docker.io/curiouscontainers/cnn'
-CONTAINER_RAM = 32000
-CONTAINER_GPUS = {'vendor': 'nvidia', 'count': 1}
+AGENCY_URL = 'https://agency.f4.htw-berlin.de/cc'
 LEARNING_RATES = [0.0001, 0.0005]
-STEPS_PER_EPOCH = 10
 
 
 batches = []
@@ -34,7 +27,8 @@ for i, learning_rate in enumerate(LEARNING_RATES):
                 }
             },
             'learning_rate': learning_rate,
-            'steps_per_epoch': STEPS_PER_EPOCH,
+            'steps_per_epoch': 1,
+            'num_epochs': 1,
             'log_dir': {
                 'class': 'Directory',
                 'connector': {
@@ -43,7 +37,7 @@ for i, learning_rate in enumerate(LEARNING_RATES):
                     'access': {
                         'host': SSH_SERVER,
                         'auth': SSH_AUTH,
-                        'dirPath': LOG_DIR,
+                        'dirPath': 'cnn-training/log',
                         'writable': True
                     }
                 }
@@ -77,18 +71,24 @@ red = {
         'engine': 'docker',
         'settings': {
             'image': {
-                'url': CONTAINER_IMAGE_URL,
+                'url': 'docker.io/curiouscontainers/cnn',
             },
-            'ram': CONTAINER_RAM,
-            'gpus': CONTAINER_GPUS
+            'ram': 32000,
+            'gpus': {
+                'vendor': 'nvidia',
+                'count': 1
+            }
         }
     },
     'execution': {
         'engine': 'ccagency',
         'settings': {
             'access': {
-              'url': CC_AGENCY_URL,
-              'auth': CC_AGENCY_AUTH
+              'url': AGENCY_URL,
+              'auth': {
+                  'username': '{{agency_username}}',
+                  'password': '{{agency_password}}'
+              }
             }
         }
     }
