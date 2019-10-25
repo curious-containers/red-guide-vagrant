@@ -19,6 +19,6 @@ RUN python3 -m venv /home/cc/.local/red \
 && ln -s /home/cc/.local/red/bin/red-connector-* /home/cc/.local/bin
 
 # install app
-RUN pip3 install --user numpy h5py tensorflow-gpu==2.0.0
+RUN pip3 install --user numpy h5py tensorflow-gpu==2.0.0b1
 
 ADD --chown=cc:cc cnn-training.py /home/cc/.local/bin/cnn-training.py
