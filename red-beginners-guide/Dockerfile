@@ -15,7 +15,7 @@ RUN mkdir -p /home/cc/.local/bin
 RUN python3 -m venv /home/cc/.local/red \
 && . /home/cc/.local/red/bin/activate \
 && pip install wheel \
-&& pip install red-connector-http==1.0 red-connector-ssh==1.1 \
+&& pip install red-connector-http==1.0 red-connector-ssh==1.2 \
 && ln -s /home/cc/.local/red/bin/red-connector-* /home/cc/.local/bin
 
 # install app
