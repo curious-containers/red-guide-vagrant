@@ -64,7 +64,7 @@ with open('cnn-training.cwl.json') as f:
     cli = json.load(f)
 
 red = {
-    'redVersion': '8',
+    'redVersion': '9',
     'cli': cli,
     'batches': batches,
     'container': {

@@ -1,4 +1,4 @@
-redVersion: "8"
+redVersion: "9"
 cli:
   cwlVersion: "v1.0"
   class: "CommandLineTool"

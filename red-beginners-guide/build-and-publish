@@ -3,9 +3,9 @@
 set -eu
 
 docker build --pull -t docker.io/curiouscontainers/grepwrap .
-docker run --rm -u 1000:1000 docker.io/curiouscontainers/grepwrap red-connector-http --version
-docker run --rm -u 1000:1000 docker.io/curiouscontainers/grepwrap red-connector-http cli-version
-docker run --rm -u 1000:1000 docker.io/curiouscontainers/grepwrap red-connector-ssh --version
-docker run --rm -u 1000:1000 docker.io/curiouscontainers/grepwrap red-connector-ssh cli-version
-docker run --rm -u 1000:1000 docker.io/curiouscontainers/grepwrap grepwrap --help
+docker run --rm docker.io/curiouscontainers/grepwrap red-connector-http --version
+docker run --rm docker.io/curiouscontainers/grepwrap red-connector-http cli-version
+docker run --rm docker.io/curiouscontainers/grepwrap red-connector-ssh --version
+docker run --rm docker.io/curiouscontainers/grepwrap red-connector-ssh cli-version
+docker run --rm docker.io/curiouscontainers/grepwrap grepwrap --help
 docker push docker.io/curiouscontainers/grepwrap

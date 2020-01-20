@@ -7,3 +7,4 @@ out.txt
 predictions.csv
 weights.h5
 *.cwl.json
+*.red.json
