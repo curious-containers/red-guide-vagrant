@@ -17,8 +17,8 @@ from tensorflow.keras.metrics import AUC
 WEIGHTS_FILE = 'weights.h5'
 TRAIN_X_FILE = 'camelyonpatch_level_2_split_train_x.h5'
 TRAIN_Y_FILE = 'camelyonpatch_level_2_split_train_y.h5'
-VALID_X_FILE = 'camelyonpatch_level_2_split_train_x.h5'
-VALID_Y_FILE = 'camelyonpatch_level_2_split_train_y.h5'
+VALID_X_FILE = 'camelyonpatch_level_2_split_valid_x.h5'
+VALID_Y_FILE = 'camelyonpatch_level_2_split_valid_y.h5'
 INPUT_SHAPE = (96, 96, 3)
 
 
