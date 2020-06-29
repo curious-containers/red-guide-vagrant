@@ -84,7 +84,7 @@ def data_generator(x, y, batch_size=None):
         if batch_size is not None:
             index_sample = sorted(random.sample(index, batch_size))
 
-        x_data = x[index_sample] / 256.0
+        x_data = x[index_sample] / 255.0
         y_data = y[index_sample]
         y_data = labels[y_data[:, 0, 0, 0]]
         yield x_data, y_data
